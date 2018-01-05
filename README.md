@@ -3,19 +3,27 @@ The program performs lexical, syntactic, and semantic analysis while referencing
 
 If the input (source code) passes all tests then the program will send to standard output whatever the input requested to be printed. 
 
-Grammar:
+**Grammar:**
 
 Prog ​ ​::= ​ ​StmtList
+
 StmtList ​ ​::= ​ ​{ ​ ​Stmt ​ ​T_SC ​ ​} ​ ​{ ​ ​StmtList ​ ​}
+
 Stmt ​ ​::= ​ ​Decl ​ ​| ​ ​Set ​ ​| ​ ​Print
+
 Decl ​ ​::= ​ ​T_INT ​ ​T_ID ​ ​| ​ ​T_STRING ​ ​T_ID
+
 Set ​ ​::= ​ ​T_SET ​ ​T_ID ​ ​Expr
+
 Print ​ ​::= ​ ​T_PRINT ​ ​Expr ​ ​| ​ ​T_PRINTLN ​ ​Expr
+
 Expr ​ ​::= ​ ​Term ​ ​{ ​ ​(T_PLUS|T_MINUS) ​ ​Expr ​ ​}
+
 Term ​ ​::= ​ ​Primary ​ ​{ ​ ​(T_STAR|T_SLASH) ​ ​Term ​ ​}
+
 Primary ​ ​::= ​ ​T_ICONST ​ ​| ​ ​T_SCONST ​ ​| ​ ​T_ID ​ ​| ​ ​T_LPAREN ​ ​Expr ​ ​T_RPAREN
 
-Semantic rules:
+**Semantic rules:**
 
 1. There ​ ​are ​ ​only ​ ​two ​ ​types: ​ ​integer ​ ​and ​ ​string.
 
